@@ -49,9 +49,6 @@ namespace Server
             {
                 Console.WriteLine(e.ToString());
             }
-
-            Console.ReadKey();
         }
     }
-
 }

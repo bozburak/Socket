@@ -29,15 +29,14 @@ namespace Client
                 {
                     Console.WriteLine("Write Message");
                     var message = Console.ReadLine();
-                    if ("Exist".Equals(message))
-                    {
-                        break;
-                    }
-
                     byte[] msg = Encoding.ASCII.GetBytes(message);
                     int bytesSent = socket.Send(msg);
                     int bytesRec = socket.Receive(bytes);
                     var data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    if ("Exist".Equals(message))
+                    {
+                        break;
+                    }
                     Console.WriteLine($"Server Message {data}");
                 }
 
@@ -48,7 +47,6 @@ namespace Client
             {
                 Console.WriteLine(e.ToString());
             }
-            Console.ReadKey();
         }
     }
 }
